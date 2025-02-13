@@ -24,6 +24,20 @@ Imagine this: A player places a brick on the car's pedal, and the car automatica
 hilarious, and adds a whole new layer of creativity and chaos to your server. Whether it's for roleplay scenarios, hilarious moments, 
 or just pure fun, this script is guaranteed to be a hit.
 
+**ox_inventory item**
+
+["murstein"] = {
+    label = "Murstein",
+    weight = 3000,
+    stack = true,
+    close = true,
+    description = "Murstein",
+    client = {
+        event = "banngass"
+    },
+},
+
+
 
 **Dependencies**
 
