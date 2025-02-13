@@ -25,7 +25,7 @@ hilarious, and adds a whole new layer of creativity and chaos to your server. Wh
 or just pure fun, this script is guaranteed to be a hit.
 
 **ox_inventory item**
-
+```
 ["murstein"] = {
     label = "Murstein",
     weight = 3000,
@@ -36,7 +36,7 @@ or just pure fun, this script is guaranteed to be a hit.
         event = "banngass"
     },
 },
-
+```
 
 
 **Dependencies**
