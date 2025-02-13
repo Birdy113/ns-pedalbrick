@@ -1,8 +1,7 @@
 Hey and Welcome to my github!
 
 This is my first script i released for free!
-
-
+https://dunb17ur4ymx4.cloudfront.net/packages/images/fe1e3f610a62eb8abaa6b148a4b4d8a3951312e3.webp
 If you appricate the script you can Donate to: https://ko-fi.com/alexander1234
 
 
