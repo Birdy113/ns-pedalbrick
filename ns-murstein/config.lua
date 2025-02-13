@@ -11,7 +11,6 @@ mursteiner = { ------  Here you can add which prop to pickup bricks
     "prop_conc_blocks01b",
 }
 time = -1 ---- How long you want the car to drive before it stops in ms example time = 30000 means 30 seconds
-useitem = false  ---- True if you want to use the item in inventory --- False means you use target to place the brick by hovering over the door with target
 breakcar = false ----- if you want to break the car when it hits stuff "One way trip then turn this to true"
 
 --- Language --- 

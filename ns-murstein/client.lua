@@ -31,23 +31,23 @@ end)
                 distance = 2.5
             },
         })
-        if useitem == false then 
-            exports.ox_target:addGlobalVehicle({
-                {
-                    label = plasserpedal,
-                    name = 'murstein',
-                    icon = 'fa fa-signing',
-                    item = itemname,
-                    bones = "door_dside_f",
-                    distance = 2.5,
-                    onSelect = function(data)
-                        local entity = data.entity
-                        if not DoesEntityExist(entity) then return end
-                        TriggerEvent("banngass")
-                    end,
-                }
-            })
-        end
+
+        exports.ox_target:addGlobalVehicle({
+            {
+                label = plasserpedal,
+                name = 'murstein',
+                icon = 'fa fa-signing',
+                item = itemname,
+                bones = "door_dside_f",
+                distance = 2.5,
+                onSelect = function(data)
+                    local entity = data.entity
+                    if not DoesEntityExist(entity) then return end
+                    TriggerEvent("banngass")
+                end,
+            }
+        })
+
     else
 
         exports['qb-target']:AddTargetModel(mursteiner, {
