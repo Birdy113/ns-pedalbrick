@@ -1,4 +1,14 @@
-🚗 Introducing the ns-pedalbrick Script 🚗
+Hey and Welcome to my github!
+
+This is my first script i released for free!
+
+
+If you appricate the script you can Donate to: https://ko-fi.com/alexander1234
+
+
+
+
+🚗 NordicScripts Introducing the ns-pedalbrick Script 🚗
 Looking for something to fun criminals on your Fivem Server can do? Looking for a unique, fun, and slightly chaotic feature that will leave your players talking? Look no further! Our ns-pedalbrick Script is here to take your server to the next level!
 
 What Does It Do?
