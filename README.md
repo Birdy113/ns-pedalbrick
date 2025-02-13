@@ -12,7 +12,7 @@ NordicScripts is now couple of developers from Norsk RP
 an Norwegian Roleplay Community. We are abou to open a tebex store.
 with more advanced scripts that are running on our server at Norsk RP today.
 
-![image]([files/Users/jzhang/Desktop/Isolated.png](https://dunb17ur4ymx4.cloudfront.net/packages/images/fe1e3f610a62eb8abaa6b148a4b4d8a3951312e3.webp))
+![image]((https://dunb17ur4ymx4.cloudfront.net/packages/images/fe1e3f610a62eb8abaa6b148a4b4d8a3951312e3.webp))
 
 🚗 NordicScripts Introducing the ns-pedalbrick Script 🚗
 Looking for something to fun criminals on your Fivem Server can do? Looking for a unique, fun, and slightly chaotic feature that will leave your players talking? Look no further! Our ns-pedalbrick Script is here to take your server to the next level!
