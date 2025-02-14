@@ -1,11 +1,11 @@
 # Hey and Welcome to my github!
 
 This is my first script i released for free!
-
+Need any support
+Discord: https://discord.gg/tcrESDsgqV
 
 If you appricate the script you can Donate to: https://ko-fi.com/alexander1234
 
-# About us
 
 **We are NordicScripts**
 NordicScripts is now couple of developers from Norsk RP
