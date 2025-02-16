@@ -20,3 +20,4 @@ placedonpedal = "Du satt murstein på gasspedalen" ----- Place brick on pedal
 locked = "Bilen er låst"  --------- Car is locked
 close = "Du må være i nærheten av et kjøretøy" -------- You need to be closer to a vehicle
 plasserpedal = "Plasser mursteinen på pedalen"  ------- for target Place brick on pedal
+missingbrick = "Du mangler murstein" ------- You need a brick to do this

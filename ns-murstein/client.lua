@@ -1,4 +1,65 @@
 local QBCore = exports["qb-core"]:GetCoreObject()
+local playerped = PlayerPedId()
+
+
+if target == "ox_target" then 
+    exports.ox_target:addModel(mursteiner, {
+        {
+            name = "murstein1",
+            debugPoly = false,
+            useZ = true,
+            event = "plukkoppmur",
+            icon = "fa fa-signing",
+            label = pickup,
+            distance = 2.5
+        },
+    })
+    exports.ox_target:addGlobalVehicle({
+        {
+            label = plasserpedal,
+            name = 'murstein',
+            icon = 'fa fa-signing',
+            items = itemname,
+            bones = "door_dside_f",
+            distance = 2.5,
+            onSelect = function(data)
+                local entity = data.entity
+                if not DoesEntityExist(entity) then return end
+                TriggerEvent("banngass")
+            end,
+        }
+    })
+else
+    exports['qb-target']:AddTargetModel(mursteiner, {
+        options = {
+            {
+                event = 'plukkoppmur',
+                icon = 'fa fa-signing',
+                label = pickup,
+            },
+        },
+        distance = 2.5
+    })
+    if useitem == false then 
+        exports['qb-target']:AddGlobalVehicle({
+            options = { 
+                { 
+                type = "client", 
+                icon = 'fa fa-signing', 
+                label = plasserpedal,
+                targeticon = 'fa fa-signing', 
+                item = itemname,
+                canInteract = function(entity, distance, data)
+                    local entity = data.entity
+                    if not DoesEntityExist(entity) then return end
+                    TriggerEvent("banngass")
+                end,
+                }
+            },
+            distance = 2.5, 
+        })
+    end
+end
 
 local function loadAnimDict(dict)
     RequestAnimDict(dict)
@@ -7,99 +68,33 @@ local function loadAnimDict(dict)
     end
 end
 
-RegisterNetEvent("plukkoppmur")
-AddEventHandler("plukkoppmur", function()
+RegisterNetEvent("plukkoppmur", function()
     RequestAnimDict("pickup_object")
     loadAnimDict("pickup_object")
-    TaskPlayAnim(PlayerPedId(),"pickup_object","pickup_low",1.0,-1.0,-1,2,1,true,true,true)
+    TaskPlayAnim(playerped,"pickup_object","pickup_low",1.0,-1.0,-1,2,1,true,true,true)
     Wait(2000)
-    ClearPedTasks(PlayerPedId())
+    ClearPedTasks(playerped)
     TriggerServerEvent("girmur")
 end)
 
-
-    if target == "ox_target" then 
-        exports['ox_target']:addModel(mursteiner, {
-    
-            {
-                name = "murstein1",
-                debugPoly = false,
-                useZ = true,
-                event = "plukkoppmur",
-                icon = "fa fa-signing",
-                label = pickup,
-                distance = 2.5
-            },
-        })
-
-        exports.ox_target:addGlobalVehicle({
-            {
-                label = plasserpedal,
-                name = 'murstein',
-                icon = 'fa fa-signing',
-                item = itemname,
-                bones = "door_dside_f",
-                distance = 2.5,
-                onSelect = function(data)
-                    local entity = data.entity
-                    if not DoesEntityExist(entity) then return end
-                    TriggerEvent("banngass")
-                end,
-            }
-        })
-
-    else
-
-        exports['qb-target']:AddTargetModel(mursteiner, {
-            options = {
-                {
-                    event = 'plukkoppmur',
-                    icon = 'fa fa-signing',
-                    label = pickup,
-                },
-            },
-            distance = 2.5
-        })
-        if useitem == false then 
-            exports['qb-target']:AddGlobalVehicle({
-                options = { 
-                  { 
-                    type = "client", 
-                    icon = 'fa fa-signing', 
-                    label = plasserpedal,
-                    targeticon = 'fa fa-signing', 
-                    item = itemname,
-                    canInteract = function(entity, distance, data)
-                        local entity = data.entity
-                        if not DoesEntityExist(entity) then return end
-                        TriggerEvent("banngass")
-                    end,
-                  }
-                },
-                distance = 2.5, 
-            })
-        end
-    end
-
-
-
-RegisterNetEvent("banngass")
-AddEventHandler("banngass",function()
+RegisterNetEvent("banngass",function()
     ---- This is made to work with and without target
-    local coords = GetEntityCoords(PlayerPedId())
-    local vehicle = QBCore.Functions.GetClosestVehicle(coords, 2)
+    local hasitem = exports.ox_inventory:Search('count', itemname)
+    local coords = GetEntityCoords(playerped)
+    local vehicle = QBCore.Functions.GetClosestVehicle(coords)
     local vehcoords = GetEntityCoords(vehicle)
-    local betcoord = GetDistanceBetweenCoords(coords, vehcoords)
+    local betcoord = #(coords - vehcoords)
     local door = GetVehicleDoorLockStatus(vehicle)
+    if hasitem < 1 then QBCore.Functions.Notify(missingbrick) return end
     if door == 2 then QBCore.Functions.Notify(locked) return end 
     if betcoord < 2.5 then 
         SetVehicleDoorOpen(vehicle,0,false,true)
         RequestAnimDict("pickup_object")
         loadAnimDict("pickup_object")
-        TaskPlayAnim(PlayerPedId(),"pickup_object","pickup_low",1.0,-1.0,-1,2,1,true,true,true)
+        TaskPlayAnim(playerped,"pickup_object","pickup_low",1.0,-1.0,-1,2,1,true,true,true)
         Wait(2000)
         TriggerServerEvent("fjemur")
-        ClearPedTasks(PlayerPedId())
+        ClearPedTasks(playerped)
         SetVehicleDoorShut(vehicle,0,false)
         SetVehicleEngineOn(vehicle, true, true, false)
         Wait(1000)
@@ -126,5 +121,4 @@ AddEventHandler("banngass",function()
     else
         QBCore.Functions.Notify(close)
     end
-
 end)

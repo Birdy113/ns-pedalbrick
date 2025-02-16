@@ -1,7 +1,6 @@
 local QBCore = exports["qb-core"]:GetCoreObject()
 
-RegisterNetEvent("girmur")
-AddEventHandler("girmur", function()
+RegisterNetEvent("girmur", function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     if inv == "ox_inventory" then
@@ -11,8 +10,7 @@ AddEventHandler("girmur", function()
     end
 end)
 
-RegisterNetEvent("fjemur")
-AddEventHandler("fjemur", function()
+RegisterNetEvent("fjemur", function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     if inv == "ox_inventory" then
