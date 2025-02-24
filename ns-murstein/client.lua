@@ -21,7 +21,7 @@ if target == "ox_target" then
             icon = 'fa fa-signing',
             items = itemname,
             bones = "door_dside_f",
-            distance = 2.5,
+            distance = 3.5,
             onSelect = function(data)
                 local entity = data.entity
                 if not DoesEntityExist(entity) then return end
@@ -56,7 +56,7 @@ else
                 end,
                 }
             },
-            distance = 2.5, 
+            distance = 3.5, 
         })
     end
 end
@@ -87,7 +87,7 @@ RegisterNetEvent("banngass",function()
     local door = GetVehicleDoorLockStatus(vehicle)
     if hasitem < 1 then QBCore.Functions.Notify(missingbrick) return end
     if door == 2 then QBCore.Functions.Notify(locked) return end 
-    if betcoord < 2.5 then 
+    if betcoord < 3.5 then 
         SetVehicleDoorOpen(vehicle,0,false,true)
         RequestAnimDict("pickup_object")
         loadAnimDict("pickup_object")
