@@ -79,6 +79,7 @@ end)
 
 RegisterNetEvent("banngass",function()
     ---- This is made to work with and without target
+    local playerped = PlayerPedId()
     local hasitem = exports.ox_inventory:Search('count', itemname)
     local coords = GetEntityCoords(playerped)
     local vehicle = QBCore.Functions.GetClosestVehicle(coords)
