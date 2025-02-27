@@ -69,6 +69,7 @@ local function loadAnimDict(dict)
 end
 
 RegisterNetEvent("plukkoppmur", function()
+    local playerped = PlayerPedId()    
     RequestAnimDict("pickup_object")
     loadAnimDict("pickup_object")
     TaskPlayAnim(playerped,"pickup_object","pickup_low",1.0,-1.0,-1,2,1,true,true,true)
