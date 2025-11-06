@@ -80,7 +80,7 @@ end)
 RegisterNetEvent("banngass",function()
     ---- This is made to work with and without target
     local playerped = PlayerPedId()
-    if Config.Inventory == "ox_inventory" then
+    if Config.inv == "ox_inventory" then
         hasitemox = exports.ox_inventory:Search('count', itemname)
     else
         hasItem = QBCore.Functions.HasItem(itemname, 1)      
@@ -127,4 +127,5 @@ RegisterNetEvent("banngass",function()
         QBCore.Functions.Notify(close)
     end
 end)
+
 
