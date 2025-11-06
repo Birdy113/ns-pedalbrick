@@ -1,7 +1,6 @@
 local QBCore = exports["qb-core"]:GetCoreObject()
 local playerped = PlayerPedId()
 
-
 if target == "ox_target" then 
     exports.ox_target:addModel(mursteiner, {
         {
@@ -81,13 +80,17 @@ end)
 RegisterNetEvent("banngass",function()
     ---- This is made to work with and without target
     local playerped = PlayerPedId()
-    local hasitem = exports.ox_inventory:Search('count', itemname)
+    if Config.Inventory == "ox_inventory" then
+        hasitemox = exports.ox_inventory:Search('count', itemname)
+    else
+        hasItem = QBCore.Functions.HasItem(itemname, 1)      
+    end
     local coords = GetEntityCoords(playerped)
     local vehicle = QBCore.Functions.GetClosestVehicle(coords)
     local vehcoords = GetEntityCoords(vehicle)
     local betcoord = #(coords - vehcoords)
     local door = GetVehicleDoorLockStatus(vehicle)
-    if hasitem < 1 then QBCore.Functions.Notify(missingbrick) return end
+    if hasitemox < 1 or hasItem then QBCore.Functions.Notify(missingbrick) return end
     if door == 2 then QBCore.Functions.Notify(locked) return end 
     if betcoord < 3.5 then 
         SetVehicleDoorOpen(vehicle,0,false,true)
@@ -124,3 +127,4 @@ RegisterNetEvent("banngass",function()
         QBCore.Functions.Notify(close)
     end
 end)
+
