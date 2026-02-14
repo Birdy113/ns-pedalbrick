@@ -82,6 +82,7 @@ RegisterNetEvent("banngass",function()
     local playerped = PlayerPedId()
     if Config.inv == "ox_inventory" then
         hasitemox = exports.ox_inventory:Search('count', itemname)
+        if hasitemox then hasItem = true end
     else
         hasItem = QBCore.Functions.HasItem(itemname, 1)      
     end
@@ -90,7 +91,7 @@ RegisterNetEvent("banngass",function()
     local vehcoords = GetEntityCoords(vehicle)
     local betcoord = #(coords - vehcoords)
     local door = GetVehicleDoorLockStatus(vehicle)
-    if hasitemox < 1 or hasItem then QBCore.Functions.Notify(missingbrick) return end
+    if hasItem == false then QBCore.Functions.Notify(missingbrick) return end
     if door == 2 then QBCore.Functions.Notify(locked) return end 
     if betcoord < 3.5 then 
         SetVehicleDoorOpen(vehicle,0,false,true)
@@ -127,5 +128,6 @@ RegisterNetEvent("banngass",function()
         QBCore.Functions.Notify(close)
     end
 end)
+
 
 
