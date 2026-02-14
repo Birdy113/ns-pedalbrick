@@ -20,10 +20,11 @@ RegisterNetEvent("fjemur", function()
     end
 end)
 
-if framework == "QBCore" then
+if framework == "qb" then
     QBCore.Functions.CreateUseableItem(itemname, function(source)
         local src = source
         local Player = QBCore.Functions.GetPlayer(src)
         TriggerClientEvent("banngass", source)
     end)
+
 end
